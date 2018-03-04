@@ -1,3 +1,9 @@
+//var header = require('../header.js');
+
+//console.log(display("Exercise 2.3", "Gabriel", "Vance", "Handles routing for servers")); 
+// these headers/vars were crashing the code so I put them in comments for proper attribution 
+
+
 // set up req state for http lib and exp
 var express = require('express');
 var http=require('http');

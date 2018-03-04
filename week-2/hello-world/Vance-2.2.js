@@ -1,3 +1,9 @@
+// var header = require('../header.js');
+
+// console.log(display("Exercise 2.2", "Gabriel", "Vance", "Creates hello-world-express server")); 
+// these headers/vars were crashing the code so I put them in comments for proper attribution 
+
+
 // navigates to assn file
 var express= require('express');
 //require statement for http to add library for server
