@@ -1,0 +1,9 @@
+{
+    "name":"morgan-logging",
+    "author":"Gabriel Vance",
+    "private":true,
+    "version":"0.0.1",
+    "dependencies":{
+        
+    }
+}
