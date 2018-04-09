@@ -1,0 +1,15 @@
+{
+    "name": "edm-models",
+    "firstname": "Gabriel",
+    "lastname": "Vance",
+    "email": "gjvance@bellevue.me.edu",
+    "address": "1234 Sesame St",
+    "city": "Bellevue",
+    "state": "Nebraska",
+    "zip": "68005",
+    "private": true,
+    "version": "0.0.1",
+    "dependencies": {
+        "mongoose": "^5.0.13"
+    }
+}
