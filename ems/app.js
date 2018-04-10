@@ -6,9 +6,11 @@ var express=require("express");
 var http=require("http");
 var path=require("path");
 var logger=require("morgan");
-
+// add mongoose - week 8
 var mongoose = require("mongoose");
 var Employee = require("./models/employee");
+// add helmet - week 8
+var helmet=require("helmet";
 
 //adding the DB
 
@@ -25,15 +27,27 @@ db.once("open", function() {
 });
 
 
-// expressapplication 
+// init express from week 8
 var app=express();
 
+// use statements adding helmet week08
 app.use(logger("short"));
+app.use(helmet.xssFilter());
 
 // set statements
 app.set("views",path.resolve(__dirname,"views"));
 app.set("view engine","ejs");
 
+// http calls week -8
+
+/* this is similar to the below function. both are added
+but I think I'm only keeping one.
+app.get("/",function(request,response){
+    response.render("index",{
+        message:"XSS Prevention Example"
+    });
+});
+*/
 
 app.get("/",function(request,response){
     response.render("index",{
