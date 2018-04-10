@@ -1,5 +1,5 @@
 var header = require('../header.js');
-console.log(header.display("Assignment 6.4", "Gabriel", "Vance", "User Interface Submission")); 
+console.log(header.display("EMS", "Gabriel", "Vance", "User Interface Submission")); 
 
 //required statements
 var express=require("express");
@@ -11,6 +11,13 @@ var mongoose = require("mongoose");
 var Employee = require("./models/employee");
 // add helmet - week 8
 var helmet=require("helmet";
+// add parsers - week 8
+var bodyParser=require("body-parser");
+var cookieParser=require("cookie-parser");
+var csrf=require("csurf");
+
+//setup csrf protection - week 8
+var csrfProtection=csrf({cookie:true});
 
 //adding the DB
 
@@ -33,6 +40,19 @@ var app=express();
 // use statements adding helmet week08
 app.use(logger("short"));
 app.use(helmet.xssFilter());
+//parser week 8
+app.use(bodyParser.urlencoded({
+    extended:true
+}));
+app.use(cookieParser());
+app.use(csrfProtection);
+app.use(function(request,response, next){
+    var token=request.csrfToken();
+    response.cookie('XSRF-TOKEN',token);
+    response.locals.csrfToken=token;
+    next();
+});
+
 
 // set statements
 app.set("views",path.resolve(__dirname,"views"));
