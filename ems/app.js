@@ -133,8 +133,7 @@ app.get("/list", function(request, response) {
 // employee model
 
 var employee=new Employee({
-    firstname:"John",
-    lastname:"Wick"
+    name = employeeName
 });
 
 
