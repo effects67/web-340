@@ -1,3 +1,14 @@
+/*
+============================================
+; Title: APP for EMS
+; Author: Professor Krasso
+; Date: 15 April 2018
+; Modified By: Gabriel Vance
+; Description: App.js is the JS file for our
+EMS file.
+;===========================================
+*/
+
 var header = require('../header.js');
 console.log(header.display("EMS", "Gabriel", "Vance", "User Interface Submission")); 
 
@@ -10,7 +21,7 @@ var logger=require("morgan");
 var mongoose = require("mongoose");
 var Employee = require("./models/employee");
 // add helmet - week 8
-var helmet=require("helmet";
+var helmet=require("helmet");
 // add parsers - week 8
 var bodyParser=require("body-parser");
 var cookieParser=require("cookie-parser");
@@ -40,7 +51,7 @@ var app=express();
 // use statements adding helmet week08
 app.use(logger("short"));
 app.use(helmet.xssFilter());
-//parser week 8
+//parser week 8 - CSRF
 app.use(bodyParser.urlencoded({
     extended:true
 }));
@@ -57,6 +68,8 @@ app.use(function(request,response, next){
 // set statements
 app.set("views",path.resolve(__dirname,"views"));
 app.set("view engine","ejs");
+app.set("port", process.env.PORT || 8080);
+
 
 // http calls week -8
 
@@ -69,21 +82,51 @@ app.get("/",function(request,response){
 });
 */
 
+/* routing examples
+*/
+
 app.get("/",function(request,response){
     response.render("index",{
-        message:"home page"
+        title:"home page"
     });
 });
 
-app.get("/about",function(request,response){
-    response.render("about",{
-        message:"about page"
+
+app.get("/new", function (request, response) {
+    response.render("new", {
+        title: "new employee"
     });
 });
 
-app.get("/contact",function(request,response){
-    response.render("contact",{
-        message:"contact page"
+app.post("/process", function(request, response) {
+
+    if (!request.body.txtName) {
+        response.status(400).send("Entries must have a name");
+        return;
+    }
+
+});
+//form data
+
+var employeeName = request.body.txtName;
+   console.log(employeeName);
+//saves the employee input
+
+employee.save(function (error) {
+    if (error) throw error;
+
+    console.log(employeeName + " saved successfully!");
+});
+
+
+app.get("/list", function(request, response) {
+    employee.find({}, function(error, employees) {
+       if (error) throw error;
+
+       response.render("list", {
+           title: "employee List",
+           employees: employees
+       });
     });
 });
 

@@ -1,32 +1,39 @@
-<table class="table table-bordered table-hover">
-    <thead class="table-dark">
-        <tr>
-            <th scope="col">Employee ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Birthday</th>
-            <th scope="col">Total Days Worked</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1</td>
-            <td>Jimmy Johns</td>
-            <td>March 1 1989</td>
-            <td>515</td>
-        </tr>
+<!DOCTYPE html>
+<html>
+<% include header %>
+<body>
+    <% include navbar %>
 
-        <tr>
-            <td>2</td>
-            <td>Wendy</td>
-            <td>April 8 1967</td>
-            <td>22</td>
-        </tr>
 
+    <div class="container">
+        <% if (Employees.length) { %>
+    <h2>-- Employee Listing --</h2><br />
+    <a href="/new">Add New</a>
+    <table class="table table-hover">
+        <thead class="thead-dark">
         <tr>
-            <td>3</td>
-            <td>Ronald McDonald</td>
-            <td>August 23 1950</td>
-            <td>950</td>
+            <th>Name</th>
+            <th>Functions</th>
         </tr>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        <% Employees.forEach(function (entry) { %>
+        <tr>
+            <td><%= entry.name %></td>
+            <td><a href="/view/<%= entry.name %>">VIEW</a></td>
+        </tr>
+        </tbody>
+        <% }) %>
+    </table>
+    <% } else { %>
+    No entries! <a href="/new">Add one!</a>
+    <% } %>
+    </div>
+
+
+
+</div>
+<% include scripts %>
+
+</body>
+</html>
