@@ -17,16 +17,15 @@ var express=require("express");
 var http=require("http");
 var path=require("path");
 var logger=require("morgan");
-// add mongoose - week 8
-var mongoose = require("mongoose");
-var Employee = require("./models/employee");
-// add helmet - week 8
-var helmet=require("helmet");
+// add helmet
+var helmet=require("helmet"
 // add parsers - week 8
 var bodyParser=require("body-parser");
 var cookieParser=require("cookie-parser");
 var csrf=require("csurf");
-
+// add mongoose - week 8
+var mongoose = require("mongoose");
+var Employee = require("./models/employee");
 //setup csrf protection - week 8
 var csrfProtection=csrf({cookie:true});
 
@@ -44,6 +43,7 @@ db.once("open", function() {
     console.log("Application connected to mLab MongoDB instance");
 });
 
+// app get
 
 // init express from week 8
 var app=express();
@@ -73,14 +73,7 @@ app.set("port", process.env.PORT || 8080);
 
 // http calls week -8
 
-/* this is similar to the below function. both are added
-but I think I'm only keeping one.
-app.get("/",function(request,response){
-    response.render("index",{
-        message:"XSS Prevention Example"
-    });
-});
-*/
+
 
 /* routing examples
 */
