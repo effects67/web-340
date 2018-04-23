@@ -6,7 +6,7 @@
 
 
     <div class="container">
-        <% if (Employees.length) { %>
+        <% if (employees.length) { %>
     <h2>-- Employee Listing --</h2><br />
     <a href="/new">Add New</a>
     <table class="table table-hover">
@@ -17,7 +17,7 @@
         </tr>
         </thead>
         <tbody>
-        <% Employees.forEach(function (entry) { %>
+        <% employees.forEach(function (entry) { %>
         <tr>
             <td><%= entry.name %></td>
             <td><a href="/view/<%= entry.name %>">VIEW</a></td>

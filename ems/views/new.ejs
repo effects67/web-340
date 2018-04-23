@@ -2,31 +2,32 @@
 <html lang="en">
 <% include header %>
 <body>
-<<<<<<< HEAD
+<% include navbar %>
 
-=======
->>>>>>> 2b3246286204031de8214491e74e293a25112404
-<div role="main" class="container">
-<h1> -- Employee Entry Page</h1>
-<form method="post" action="/process">
-  <div class="form-group">
+<div role="main" class="container" style="width: 50%;">
+    <br/><br/>
 
-    <label for="txtName">Name:</label>
-    <input type="text" class="form-control" id="txtName" name="txtName" />
-
-  </div>
-    
+    <h2>-- Employee Entry Page --</h2>
+    <form method="post" action="/process">
         <div class="form-group">
-        <!-- CSRF token -->
+            <label for="txtName">Name:</label>
+            <input type="text" class="form-control" id="txtName" name="txtName" />
+        </div>
+
+        <div class="form-group">
+            <!-- CSRF token -->
             <input name="_csrf" value="<%= csrfToken %>" type="hidden">
 
             <button type="submit" class="btn btn-primary float-right">Submit</button>
         </div>
-</form>
-    <a href="/list">Return to Employee List...</a>
+    </form><br><br>
+
+    <a href="/list">Return to Employees List....</a>
+</div>
+
+
 
 <% include scripts %>
-
 
 </body>
 </html>
