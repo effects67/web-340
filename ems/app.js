@@ -106,21 +106,21 @@ app.get("/list", function(request, response) {
 
 app.post("/process", function(request, response) {
 
-    if (!request.body.txtFirst || !request.body.txtLast) {
+    if (!request.body.txtemployeeName) {
         response.status(400).send("Entries must have a name");
         return;
     }
     //form data
-    var employeeFirst = request.body.txtFirst;
-    var employeeLast = request.body.txtLast;
-    var employeeName= employeeFirst + " " + employeeLast;
+    var employeeFirst = request.body.txtfirstname;
+    var employeeLast = request.body.txtlastname;
+    var employeeName = employeeFirst + " " + employeeLast;
     
 
    // employee model
 
     var employee=new Employee({
-        First:employeeFirst,
-        Last:employeeLast,
+        firstname:employeeFirst,
+        lastname:employeeLast,
 });
 
 //saves the employee input

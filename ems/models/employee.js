@@ -26,8 +26,8 @@ var Schema=mongoose.Schema;
 //create an employeeSchema with two (2) fields, first name and last name
 
 var employeeSchema=new Schema({
-    First:String,
-    Last:String,
+    firstname:String,
+    lastname:String,
 });
 
 //employee model added, maps the schema
